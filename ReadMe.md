@@ -20,6 +20,7 @@ This project provides a shell script for macOS that requires a Yubikey to be ins
 
     ```bash
     system_profiler SPUSBDataType | grep -i "yubikey"
+    ```
 
 6. Ready to continue with YubiKey USB Storage Restrictor
 
@@ -44,22 +45,22 @@ Move the `check_yubikey.sh` script to `/usr/local/bin/` and set the correct perm
 sudo cp check_yubikey.sh /usr/local/bin/
 sudo chmod 755 /usr/local/bin/check_yubikey.sh
 sudo chown root:wheel /usr/local/bin/check_yubikey.sh
-'''
+```
 
 ### 2. Place the plist file
 
 Move the 'com.yubikey.usbrestrict.plist' file to '/Library/LaunchDaemons/' and set the correct permission:
 
-'''bash
+```bash
 sudo chown root:wheel /Library/LaunchDaemons/com.yubikey.usbrestrict.plist
 sudo chmod 644 /Library/LaunchDaemons/com.yubikey.usbrestrict.plist
-'''
+```
+
 ### 3. Load the daemon
+
 ```bash
 sudo launchctl load -w /Library/LaunchDaemons/com.yubikey.usbrestrict.plist
-'''
-
-
+```
 
 ## License
 
